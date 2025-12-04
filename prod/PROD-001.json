@@ -1,0 +1,12 @@
+{
+  "id": "PROD-001",
+  "nama_produk": "Meja Kayu Jati",
+  "status": "Finishing",
+  "progres_persen": 75,
+  "update_terakhir": "2025-12-04",
+  "foto": [
+    "/images/prod-001-step1.jpg",
+    "/images/prod-001-step2.jpg"
+  ],
+  "catatan": "Proses finishing membutuhkan 2 hari lagi."
+}

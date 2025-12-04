@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Produk</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    img { width: 300px; margin-bottom: 10px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h1 id="nama"></h1>
+  <h3>Status: <span id="status"></span></h3>
+  <p>Progress: <span id="persen"></span>%</p>
+  <p>Update terakhir: <span id="update"></span></p>
+  <div id="foto"></div>
+
+<script>
+  const url = new URL(window.location.href);
+  const id = url.searchParams.get("id");
+
+  fetch(`/prod/${id}.json`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("nama").textContent = data.nama_produk;
+      document.getElementById("status").textContent = data.status;
+      document.getElementById("persen").textContent = data.progres_persen;
+      document.getElementById("update").textContent = data.update_terakhir;
+
+      let f = "";
+      data.foto.forEach(src => f += `<img src="${src}">`);
+      document.getElementById("foto").innerHTML = f;
+    });
+</script>
+</body>
+</html>
